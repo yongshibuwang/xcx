@@ -1,0 +1,49 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "我的招聘",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar":{
+    "backgroundColor": "#fff",
+    "color": "#000000",
+    "selectedColor":"#E16850",
+    "list":[
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "img/icon-tab-index-act.png",
+        "selectedIconPath": "img/icon-tab-index-act.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "推荐",
+        "iconPath": "img/icon-tab-pub.png",
+        "selectedIconPath": "img/icon-tab-pub-act.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "消息",
+        "iconPath": "img/icon-tab-msg.png",
+        "selectedIconPath": "img/icon-tab-msg-act.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "我的",
+        "iconPath": "img/icon-tab-user.png",
+        "selectedIconPath": "img/icon-tab-user-act.png"
+      }
+        
+      ]
+      
+    
+    
+
+  }
+  
+}

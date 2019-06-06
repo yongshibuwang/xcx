@@ -1,0 +1,41 @@
+<!--index.wxml-->
+<view>
+
+  <view class="pet_mian" id="top">
+    <swiper class="am-slides" indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}"
+  interval="{{interval}}"
+  duration="{{duration}}">
+        <view   wx:for="{{web}}" wx:key="navItems" >
+          <swiper-item>
+              <image src="{{http}}{{item.img}}"></image>
+              <view class="pet_slider_shadow"></view>
+          </swiper-item>
+        </view>
+    </swiper>
+  </view>
+  <view  wx:for="{{list}}" wx:key="navItems">
+    <view  class='recruit_list'>
+    <image src="{{item.img}}" ></image>
+      <view class='recruit_info'>
+        <view class='recruit_title'>{{item.title}}</view>
+        <view class='recruit_money'>{{item.money}}-{{item.money1}}/月</view>
+        <view class='recruit_spec'>学历：{{item.edu_groundback}} | {{item.province}}-<text wx:if="{{item.province}}=={{item.city}}">{{item.county}}</text><text wx:else>{{item.city}}</text>
+        </view>
+        <view class='company_name'>{{item.merchant_name}}</view>
+         <text class='add_time'>{{item.add_time}}</text>
+      </view>
+    </view>
+  </view>
+
+
+
+
+
+
+
+
+
+
+
+</view>

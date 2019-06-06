@@ -1,0 +1,13 @@
+
+/**index.wxss**/
+/* 轮播 */
+#top .am-slides image{width: 100%;}
+/* 首页职位列表 */
+.recruit_list{position: relative;padding: 20rpx;}
+.recruit_list image{display: block;width: 180rpx;height: 120rpx;}
+
+.recruit_title{font-size: 14px;position: absolute;left: 208rpx;top: 20rpx;width: 400rpx;overflow: hidden;height: 40rpx;white-space: nowrap;text-overflow: ellipsis;}
+.recruit_money{font-size: 14px;top: 20rpx;right:20rpx;position: absolute;color:#E16850;}
+.recruit_spec{font-size: 12px;position: absolute;top: 70rpx;left: 208rpx;}
+.company_name{font-size: 12px;position: absolute;top: 110rpx;left: 208rpx;width: 100%;}
+.add_time{font-size: 12px;top: 110rpx;right:20rpx;position: absolute;}
