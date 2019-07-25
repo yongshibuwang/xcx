@@ -1,0 +1,9 @@
+<!--pages/login/login.wxml-->
+<button  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+<image class='img_login' src='/img/timg.jpg'></image>
+</button>
+<!-- <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">
+<image class='img_login' src='/img/timg.jpg'></image>
+</button> -->
+
+

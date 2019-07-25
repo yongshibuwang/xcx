@@ -1,0 +1,4 @@
+/* pages/login/login.wxss */
+.img_login{
+  width: 100%;height: 1000px;
+}

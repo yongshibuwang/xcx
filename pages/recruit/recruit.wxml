@@ -1,0 +1,14 @@
+<!--pages/recruit/recruit.wxml-->
+<view>
+  <import src="/pages/template/template.wxml"/>
+  <template is="imgswiper" data="{{indicatorDots,autoplay,interval,duration,web}}"/>
+  <view class='recruit'>
+    <view class='recruit_title'>{{list.title}}</view>
+    <view class='recruit_money'>{{list.money}}-{{list.money1}}/月</view>
+  </view>
+
+
+
+
+
+</view>

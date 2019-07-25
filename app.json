@@ -1,19 +1,23 @@
 {
-  "pages":[
+  "pages": [
+    "pages/login/login",
+    "pages/user/userinfo/edit",
     "pages/index/index",
+    "pages/recruit/recruit",
+    "pages/template/template",
     "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "我的招聘",
-    "navigationBarTextStyle":"black"
+    "navigationBarTitleText": "我的小程序",
+    "navigationBarTextStyle": "black"
   },
-  "tabBar":{
+  "tabBar": {
     "backgroundColor": "#fff",
     "color": "#000000",
-    "selectedColor":"#E16850",
-    "list":[
+    "selectedColor": "#E16850",
+    "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
@@ -38,12 +42,6 @@
         "iconPath": "img/icon-tab-user.png",
         "selectedIconPath": "img/icon-tab-user-act.png"
       }
-        
-      ]
-      
-    
-    
-
+    ]
   }
-  
 }

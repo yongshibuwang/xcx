@@ -1,13 +1,83 @@
 
 /**index.wxss**/
-/* 轮播 */
-#top .am-slides image{width: 100%;}
-/* 首页职位列表 */
-.recruit_list{position: relative;padding: 20rpx;}
-.recruit_list image{display: block;width: 180rpx;height: 120rpx;}
 
-.recruit_title{font-size: 14px;position: absolute;left: 208rpx;top: 20rpx;width: 400rpx;overflow: hidden;height: 40rpx;white-space: nowrap;text-overflow: ellipsis;}
-.recruit_money{font-size: 14px;top: 20rpx;right:20rpx;position: absolute;color:#E16850;}
-.recruit_spec{font-size: 12px;position: absolute;top: 70rpx;left: 208rpx;}
-.company_name{font-size: 12px;position: absolute;top: 110rpx;left: 208rpx;width: 100%;}
-.add_time{font-size: 12px;top: 110rpx;right:20rpx;position: absolute;}
+/* 轮播 */
+.banner_img{
+  position: relative;
+}
+.banner_img image{width: 100%; height: 100%;}
+.banner_img swiper{
+  height:200px;
+}
+.banner_img swiper swiper-item{
+   height:200px;
+}
+.index_address{width: 90%;height: 40px;text-align: center;line-height: 40px;font-size: 14px;position: absolute;bottom: 0;background-color: #fff;left: 5%;border-top-left-radius:6px;
+border-top-right-radius:6px;
+border-bottom:1px dashed #f0f0f0;
+}
+.index_info{
+  height: 240px;
+  font-size: 14px;
+  background-color: #f6f6f8;
+   position: relative;
+}
+.index_info .info{
+  width: 90%;height: 208px;
+  padding-top:20px;
+  border-bottom-left-radius:6px;
+  border-bottom-right-radius:6px;
+  font-size: 14px;position: absolute;top: 0;
+  background-color: #fff;left: 5%;
+}
+.index_info .info view{
+  width: 90%;
+  padding-left: 5%;
+}
+.index_info .info view span{
+  line-height: 36px;
+}
+.index_info .info view em{
+  float: right;
+  margin-top: 8px;
+  line-height: 22px;
+  border-radius: 3px;
+  width: 60px;background-color:#f8e7de;height: 22px;
+  text-align: center;
+}
+.index_info .index_share{
+  margin-top: 14px;
+  width: 100%;
+  color: #fff;
+  line-height: 30px;
+  text-align: center;
+  display: block;
+  border-radius: 13px;
+}
+/* 内容展示 */
+.i_show {
+  min-height: 40px;
+  background-color: #fff;
+}
+.i_show .tit{
+  font-size: 18px;
+}
+.i_show .tit em{
+  margin-left: 10px;
+  margin-right: 6px;
+}
+.i_show .goods_list{
+  font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
