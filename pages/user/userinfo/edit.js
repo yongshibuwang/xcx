@@ -144,6 +144,9 @@ Page({
             pic = pic + ',' + img;
             var imgs = pic.split(",");
             console.log(imgs);
+            that.setData({
+              pics: imgs
+            })
           }
         })
       },
