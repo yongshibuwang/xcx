@@ -56,6 +56,40 @@
   padding: 20rpx;
 }
 /* 区域选择 */
+.img{
+  display: inline-block;
+}
+ 
+.pic {
+float:left;
+position:relative;
+margin-right:9px;
+margin-bottom:9px;
+}
+ 
+.delete-btn{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+ 
+.weui-uploader{
+  padding: 10rpx;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .base_info{
   font-size: 16px;
   color: #999;

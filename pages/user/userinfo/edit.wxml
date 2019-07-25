@@ -1,8 +1,19 @@
 <form bindsubmit="formSubmit" bindreset="formReset">
 <view class='base_info'>轮播图上传</view>
 <view class='show_img'>
+  <view class='pic' wx:for="{{pics}}" wx:for-item="item" wx:key="*this">
+        <image class='weui-uploader__img '
+                src="{{item}}"
+                data-index="{{index}}" mode="aspectFill" bindtap="previewImg">
+                  <icon type='cancel' class="delete-btn" data-index="{{index}}" catchtap="deleteImg"></icon>
+        </image>
+    </view>
+  
+  
   <image src="/img/icon-tab-user-act.png" class="uploadImg {{isShow?'true':'hideTrue'}}" bindtap='uploadImage' ></image>
 </view>
+
+
 <view class='base_info'>基本信息</view>
 <view class='edit_user'>
   <input name='id' value='{{uinfo.id}}' hidden='true'></input>
