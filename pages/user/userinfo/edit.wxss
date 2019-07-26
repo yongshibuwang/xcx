@@ -1,6 +1,7 @@
 /* pages/user/userinfo/edit.wxss */
 /* 区域选择 */
 .container {
+  z-index: 4;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -11,70 +12,86 @@
   justify-content: space-between;
   padding: 0;
   box-sizing: border-box;
-  background-color: #f8f8f8;
+  background-color: #fff;
 } 
-
 .citypickers{
+  z-index: 4;
   position: fixed;
   height: 100%;
   width: 100%;
   min-height: 100%;
-  background-color: red;
-}
-
-.citypicker{
-  
+  background-color: #fff;
 }
 .citybody {
+  z-index: 4;
+  background-color: #fff;
   position: fixed;
   bottom: 0px;
 }
-
 .cityheader {
+  background-color: #fff;
+  opacity: 1;
   position: absolute;
   top:0px;
   width: 100%;
   z-index: 4;
+  
 }
-
 .city-cancel {
+  z-index: 4;
+  background-color: #fff;
   float: left;
   margin: 16rpx;
   color: #818181;
+  opacity: 1;
 }
-
 .city-true {
+  z-index: 4;
+  background-color: #fff;
   float: right;
   margin: 16rpx;
-  color: #2FB42E
+  color: #2FB42E;
+  opacity: 1;
 }
 
 .section .picker {
+  z-index: 4;
   background-color: #fff;
   border-bottom: 1px #d9d9d9 solid;
   border-top: 1px #d9d9d9 solid;
   padding: 20rpx;
+  opacity:1;
 }
 /* 区域选择 */
+.show_img{
+   background-color: #fff;
+   padding: 40rpx;
+   height: 150rpx;
+}
+.hideTrue{
+  display: none;
+}
 .img{
   display: inline-block;
 }
- 
 .pic {
 float:left;
 position:relative;
 margin-right:9px;
 margin-bottom:9px;
 }
- 
+.pic image{
+  width: 150rpx;
+  height: 150rpx;
+}
+.uploadImg{
+  width: 150rpx;
+  height: 150rpx;
+}
 .delete-btn{
   position: absolute;
   top: 0;
   right: 0;
-}
- 
-.weui-uploader{
-  padding: 10rpx;
 }
 
 
@@ -123,5 +140,5 @@ margin-bottom:9px;
   padding-top: 60rpx;
 }
 .btn-area button{
-  border-radius:8rpx;
+  margin-bottom: 40rpx;
 }

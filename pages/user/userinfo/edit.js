@@ -12,6 +12,7 @@ Page({
   data: {
     uinfo: wx.getStorageSync('uinfo'),
     pics: wx.getStorageSync('uinfo')['pic'],
+    l_img: wx.getStorageSync('uinfo')['pic'],
     isShow: true,
     provinces: [],
     province: "",
@@ -27,6 +28,11 @@ Page({
   open: function () {
     this.setData({
       condition: !this.data.condition
+    })
+  },
+  disable:function(){
+    this.setData({
+      condition:false
     })
   },
   // 三级联动
@@ -113,9 +119,8 @@ Page({
             duration: 2000,
             mask: true,
             success:function(){
-              
-              wx.reLaunch({
-                url: '/pages/user/index/index'
+              wx.navigateTo({
+                url: '/pages/user/uinfo/user'
               })
             }
           })
@@ -130,7 +135,7 @@ Page({
     let pic = that.data.pics.join(",");
     console.log(pic);
     wx.chooseImage({
-      sizeType: ['original', 'compressed'],
+      sizeType: ['compressed'],
       sourceType: ['album', 'camera'],
       success: function (res) {
         wx.uploadFile({
@@ -139,19 +144,79 @@ Page({
           name: 'file',
           success: function (res) {
             var img = res.data;
-            console.log(img);
-            console.log(res.data);
-            pic = pic + ',' + img;
+            if(pic){
+              pic = pic + ',' + img;
+            }else{
+              pic =img;
+            }
             var imgs = pic.split(",");
-            console.log(imgs);
+            console.log(imgs.length);
+            if(imgs.length>=3){
+              that.setData({
+                isShow: false
+              })
+            }
             that.setData({
-              pics: imgs
+              pics: imgs,
+              l_img: pic
             })
           }
         })
       },
     })
+  },
+  // 图片删除
+  deleteImg:function(e){
+    let that = this;
+    wx.showModal({
+      title: '提示',
+      content: '是否删除该图片',
+      success: function (res) {
+        if(res.confirm) {
+          //点击确定
+          let id = e.target.dataset.idx;;
+          const img = e.target.dataset.index;
+          console.log(img);
+          console.log(id);
+          wx.request({
+            url: 'https://www.zhyong.top/xcx/user/DelImg',
+            method: 'post',
+            data: {
+              img: img,
+              id: id,
+              table: 'user',
+              field: 'pic'
+            },
+            header: {
+              'content-type': 'application/x-www-form-urlencoded' // post提交，查看相关文档
+            },
+            success(res) {
+              if (res.data.code == 200) {
+                wx.setStorageSync('uinfo', res.data.list) //重新赋值
+                wx.showToast({
+                  title: '删除成功',
+                  icon: 'succes',
+                  duration: 2000,
+                  mask: true,
+                  success: function () {
+                    //重新赋值
+                    that.setData({
+                      pics: wx.getStorageSync('uinfo')['pic'],
+                      l_img: wx.getStorageSync('uinfo')['pic']
+                    })
+                  }
+                })
+              }
+            }
+          })
+        }
+      }
+    })
 
+
+
+
+    
   },
   /**
    * 生命周期函数--监听页面加载
@@ -159,12 +224,19 @@ Page({
   onLoad: function (options) {
     console.log("onLoad");
     var that = this;
+    let imgs = that.data.pics
+    if(imgs){
+      if (imgs.length >= 3) {
+        that.setData({
+          isShow: false
+        })
+      }
+    }
     tcity.init(that);
     var cityData = that.data.cityData;
     const provinces = [];
     const citys = [];
     const countys = [];
-
     for (let i = 0; i < cityData.length; i++) {
       provinces.push(cityData[i].name);
     }
@@ -198,7 +270,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this;
+    let imgs = that.data.pics
+    if (imgs) {
+      if (imgs.length >= 3) {
+        that.setData({
+          isShow: false
+        })
+      }
+    }
+    that.setData({
+      uinfo: wx.getStorageSync('uinfo'),
+      pics: wx.getStorageSync('uinfo')['pic'],
+      l_img: wx.getStorageSync('uinfo')['pic']
+    })
   },
 
   /**

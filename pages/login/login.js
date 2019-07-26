@@ -9,18 +9,30 @@ Page({
   },
   // 点击获取用户基本信息授权
   onGotUserInfo: function (e) {
-    // console.log(e.detail.errMsg)
-    // console.log(e.detail.userInfo)
-    // console.log(e.detail.rawData)
+    var userInfo = e.detail.userInfo
+    userInfo['id'] = wx.getStorageSync('uinfo')['id'];
+   
     if (e.detail.errMsg == 'getUserInfo:ok') {
-      console.log(e.detail.userInfo)
+      console.log(userInfo);
       wx.request({
-        url: 'https://www.yong.com/xcx/index/GetUserInfo', 
-        data: {
-          user: e.detail.userInfo
-        },
+        url: 'https://www.zhyong.top/xcx/user/GetUserInfo', 
+        method:'post',
+        data: userInfo,
         success(res) {
-          console.log(res.data)
+          console.log(res.data);return;
+          if (res.data.code == 200) {
+            wx.setStorageSync('uinfo', res.data.list)
+            console.log(wx.getStorageSync('uinfo'))
+            if (wx.getStorageSync('uinfo')['wechat']) {
+              wx.reLaunch({
+                url: '/pages/user/uinfo/user'
+              })
+            } else {
+              wx.reLaunch({
+                url: '/pages/user/userinfo/edit'
+              })
+            }
+          }
         }
       })
     }
@@ -37,7 +49,7 @@ Page({
             var iv = e.detail.iv;
             var en = e.detail.encryptedData
             wx.request({
-              url: 'https://www.zhyong.top/xcx/user/GetUserInfo', 
+              url: 'https://www.zhyong.top/xcx/user/GetUserPhone', 
               method: 'get',
               data: {
                 code: code,

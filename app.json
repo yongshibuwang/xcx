@@ -2,6 +2,7 @@
   "pages": [
     "pages/login/login",
     "pages/user/userinfo/edit",
+    "pages/user/uinfo/user",
     "pages/index/index",
     "pages/recruit/recruit",
     "pages/template/template",
@@ -43,5 +44,6 @@
         "selectedIconPath": "img/icon-tab-user-act.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

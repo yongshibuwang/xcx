@@ -1,48 +1,50 @@
 <form bindsubmit="formSubmit" bindreset="formReset">
 <view class='base_info'>轮播图上传</view>
 <view class='show_img'>
-  <view class='pic' wx:for="{{pics}}" wx:for-item="item" wx:key="*this">
+  <view wx:if='{{pics[0]}}'>
+    <view class='pic' wx:for="{{pics}}" wx:for-item="item" wx:key="*this">
         <image class='weui-uploader__img '
                 src="{{item}}"
                 data-index="{{index}}" mode="aspectFill" bindtap="previewImg">
-                  <icon type='cancel' class="delete-btn" data-index="{{index}}" catchtap="deleteImg"></icon>
+                  <icon type='cancel' class="delete-btn" data-index="{{item}}" data-idx="{{uinfo.id}}"catchtap="deleteImg"></icon>
         </image>
     </view>
+  </view>
   
   
-  <image src="/img/icon-tab-user-act.png" class="uploadImg {{isShow?'true':'hideTrue'}}" bindtap='uploadImage' ></image>
+  
+  <image src="/img/add_img.png" class="uploadImg {{isShow?'true':'hideTrue'}}" bindtap='uploadImage' ></image>
 </view>
-
-
 <view class='base_info'>基本信息</view>
 <view class='edit_user'>
   <input name='id' value='{{uinfo.id}}' hidden='true'></input>
+  <textarea name='pic' value="{{l_img}}" hidden='true'  maxlength='-1'></textarea>
   <view class="user_info">
     <text class='x_name'>小程序名称：</text>
-    <input type='text' name='x_name' value='{{uinfo.x_name}}' auto-focus placeholder='请输入名称'></input>
+    <input type='text' name='x_name' value='{{uinfo.x_name}}' bindfocus="disable" placeholder='请输入名称'></input>
   </view>
   <view class="user_info">
     <text class='x_name'>地址：</text>
-    <input placeholder="选择" name='city'  value="{{city}}-{{county}}" focus="{{focus}}" bindfocus="open" />
+    <input placeholder="选择" name='city' disabled='disabled' value="{{city}}-{{county}}" bindtap="open" />
   </view>
   <view class="user_info">
-    <input type='text' name='address' value='{{uinfo.address}}' auto-focus placeholder='请输入详细地址'></input>
+    <input type='text' name='address' value='{{uinfo.address}}' bindfocus="disable" placeholder='请输入详细地址'></input>
   </view>
   <view class="user_info">
     <text class='x_name'>所在单位：</text>
-    <input type='text' name='company' value='{{uinfo.company}}' auto-focus placeholder='请输入所在单位'></input>
+    <input type='text' name='company' value='{{uinfo.company}}' bindfocus="disable" placeholder='请输入所在单位'></input>
   </view>
   <view class="user_info">
     <text class='x_name'>联系人：</text>
-    <input type='text' name='name' value='{{uinfo.name}}' auto-focus placeholder='请输入联系人'></input>
+    <input type='text' name='name' value='{{uinfo.name}}' bindfocus="disable" placeholder='请输入联系人'></input>
   </view>
   <view class="user_info">
     <text class='x_name'>联系电话：</text>
-    <input type='text' name='link_phone' value='{{uinfo.link_phone}}' auto-focus placeholder='请输入联系电话'></input>
+    <input type='text' name='link_phone' value='{{uinfo.link_phone}}' bindfocus="disable" placeholder='请输入联系电话'></input>
   </view>
   <view class="user_info">
     <text class='x_name'>微信号：</text>
-    <input type='text' name='wechat' value='{{uinfo.wechat}}' auto-focus placeholder='请输入微信号'></input>
+    <input type='text' name='wechat' bindfocus="disable"  value='{{uinfo.wechat}}' placeholder='请输入微信号'></input>
   </view>
 
   <view class="user_info">

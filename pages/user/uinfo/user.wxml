@@ -1,0 +1,69 @@
+<!--index.wxml-->
+<view class="banner_img">
+    <view wx:if="{{uinfo.pic[0]}}">
+      <swiper indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}"
+        interval="{{interval}}"
+        duration="{{duration}}">
+          <view class='pic' wx:for="{{uinfo.pic}}" wx:for-item="item" wx:key="*this">
+            <swiper-item>
+                <image src="{{item}}" mode="scaleToFill"></image>
+            </swiper-item>
+          </view>
+          </swiper>
+    </view>
+    <view wx:else>
+          <swiper indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}"
+        interval="{{interval}}"
+        duration="{{duration}}">
+            <swiper-item>
+                <image src="/img/fl01.png" mode="scaleToFill"></image>
+            </swiper-item>
+            <swiper-item>
+                <image src="/img/fl02.png" mode="scaleToFill"></image>
+            </swiper-item>
+            <swiper-item>
+                <image src="/img/fl03.png" mode="scaleToFill"></image>
+            </swiper-item>
+          </swiper>
+    </view>
+
+
+          
+
+
+
+
+      <view class='index_address'>
+        <em>{{uinfo.city}}</em>
+      </view>
+</view>
+<view class='index_info'>
+  <view class='info'>
+    <view><span>地　址：{{uinfo.city}}{{uinfo.address}}</span><em class='c_gong'>导航</em></view>
+    <view><span>联系人：{{uinfo.name}}</span><em class='c_gong'>保存</em></view>
+    <view><span>手机号：{{uinfo.link_phone}}</span><em class='c_gong'>拨打</em></view>
+    <view><span>微信号：{{uinfo.wechat}}</span><em class='c_gong'>加好友</em></view>
+    <view><span class='index_share b_gong' bindtap="skip"  ><image src="/img/icon_190416_4.png"></image> 编辑基本信息</span></view>
+
+
+  </view>
+</view>
+<view class='i_show'>
+  <view class='tit'><em class='xian'>|</em>内容展示</view>
+  <view class='goods_list'></view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+

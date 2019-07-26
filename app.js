@@ -5,41 +5,52 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-    // console.log(wx.getStorageSync('uid'))
     // 登录
-    if (wx.getStorageSync('uinfo')) {
-      // Do something with return value
-      console.log(wx.getStorageSync('uinfo'))
-      if (wx.getStorageSync('uinfo')['openid']){
-        wx.reLaunch({
-          url: 'pages/index/index'
-        })
-      }else{
-        wx.reLaunch({
-          url: 'pages/user/userinfo/edit'
-        })
-      }
-      
-      
-    }
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         if (res.code) {
+          wx.request({
+            url: 'https://www.zhyong.top/xcx/user/index',
+            method: 'get',
+            data: { code: res.code },
+            success(res) {
+              if (res.data.code == 200) {
+                wx.setStorageSync('uinfo', res.data.list)
+                // Do something with return value
+                if (wx.getStorageSync('uinfo')['wechat']) {
+                  wx.reLaunch({
+                    url: '/pages/user/uinfo/user'
+                  })
+                } else if (wx.getStorageSync('uinfo')['name']){
+                  wx.reLaunch({
+                    url: '/pages/user/userinfo/edit'
+                  })
+                }else{
+                  wx.reLaunch({
+                    url: '/pages/login/login'
+                  })
+                }
+              } else if (res.data.code == 199){
+                  wx.setStorageSync('uinfo', res.data.list)
+                  wx.reLaunch({
+                    url: '/pages/login/login'
+                  })
+              }
+            }
+          })
         }
       }
-      // success: res => {
-      //   console.log(res.code);
-      //   // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      // }
     })
+
+    
+    
     
 
   },
   globalData: {
     userInfo: null
   }
-
 
 
 })
